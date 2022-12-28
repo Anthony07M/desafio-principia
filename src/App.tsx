@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Chart } from 'react-google-charts';
+export const data = [
+  ["Year", "Sales", "Expenses"],
+  ["2013", 1000, 400],
+  ["2014", 1170, 460],
+  ["2015", 660, 1120],
+  ["2016", 1030, 540],
+];
 
+export const options = {
+  chart: {
+    title: "Company Performance",
+    subtitle: "Sales, Expenses, and Profit: 2014-2017",
+  },
+};
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Chart
+          chartType='ColumnChart'
+          data={data}
+          width="100%"
+          height="640px"
+          legendToggle
+          chartLanguage='pt-BR'
+          options={{
+            title: "Title for chart",
+            legend: "Like",
+            colors: ['pink', 'yellow', 'blue'],
+          }}
+          
+        />
     </div>
   );
 }
