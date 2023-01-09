@@ -62,7 +62,7 @@ export const Dashboard = () => {
                     Icon={BsCalendar2Check}
                     title="Mês"
                     value={itemTotal.final}
-                    type="black"
+                    type="gray"
                 />
             </Content>
             <div className="content-drop-down">

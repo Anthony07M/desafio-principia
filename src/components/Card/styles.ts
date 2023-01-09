@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export type variantType = "red" | "green" | "black" | "blue" 
+export type variantType = "red" | "green" | "gray" | "blue" 
 interface IContainerProps {
     type: variantType
 }
@@ -8,7 +8,7 @@ interface IContainerProps {
 const colorSelected = {
     red: '--bs-red',
     green: '--bs-green-text',
-    black: '--bs-black',
+    gray: '--bs-gray-dark',
     blue: '--bs-blue',
 
 }
@@ -35,7 +35,7 @@ export const Container = styled.div<IContainerProps>`
         font-weight: 700;
         font-size: 28px;
         line-height: 33px;
-        color:   var(${({ type }) => colorSelected[type]});
+        color: var(${({ type }) => colorSelected[type]});
     }
 
     h3{
@@ -44,6 +44,6 @@ export const Container = styled.div<IContainerProps>`
         font-weight: 700;
         font-size: 20px;
         line-height: 24px;
-        color: var(--bs-black);
+        color:  var(${({ type }) => colorSelected[type]});
     }
 `;

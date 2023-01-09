@@ -9,7 +9,7 @@ describe("Card", () => {
                 Icon={AiFillAlert}
                 title="Title"
                 value={200}
-                type="black"
+                type="gray"
                 isMoeda
             />
         )
@@ -33,7 +33,7 @@ describe("Card", () => {
                 Icon={AiFillAlert}
                 title="Title"
                 value={200}
-                type="black"
+                type="gray"
             />
         )
 
