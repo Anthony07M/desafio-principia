@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
     :root{
         --bs-blue: #0d6efd;
+        --bs-blue-bg: #0F70B7;
         --bs-indigo: #6610f2;
         --bs-purple: #6f42c1;
         --bs-pink: #d63384;
@@ -10,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
         --bs-orange: #fd7e14;
         --bs-yellow: #ffc107;
         --bs-green: #198754;
+        --bs-green-text: #C2E15C;
         --bs-teal: #20c997;
         --bs-cyan: #0dcaf0;
         --bs-black: #000;
