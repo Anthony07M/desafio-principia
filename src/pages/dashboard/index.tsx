@@ -2,23 +2,23 @@ import { Card } from "../../components/Card";
 import { Modal } from "../../components/Modal";
 import { Chart } from "../../components/Chart";
 import { Table } from "../../components/Table";
-import { options, titles } from "../../utils";
 import { services } from "../../services/api";
 import { DropDown } from "../../components/DropDown";
 import { CgCloseO } from "react-icons/cg";
+import { CiWallet } from "react-icons/ci";
 import { FiPercent } from "react-icons/fi";
+import { TbCurrencyReal } from "react-icons/tb";
+import { options, titles } from "../../utils";
+import { BsCalendar2Check } from "react-icons/bs"
 import { Container, Content } from "./styles";
 import { useEffect, useState } from "react";
-import { TbCurrencyReal} from 'react-icons/tb';
-import { CiWallet } from 'react-icons/ci';
-import { BsCalendar2Check } from 'react-icons/bs'
 
 export const Dashboard = () => {
-    const [data, setData] = useState<any>([]); // mudar nome 
+    const [data, setData] = useState<Array<string[] | number[]>>([]);
     const [itemTotal, setItemTotal] = useState<any>({});
     const [openModal, setOpenModal] = useState<boolean>(false);
-    const [itemSelected, setItemSelected] = useState('');
-    const [monthSelected, setMonthSelected] = useState('');
+    const [itemSelected, setItemSelected] = useState<string>('');
+    const [monthSelected, setMonthSelected] = useState<string>('');
 
     const list = async (month = 'todos') => {
         const { listStudents } = services;
@@ -30,7 +30,7 @@ export const Dashboard = () => {
     }
 
     useEffect(() => {
-        list(); // mudar nome da funação
+        list();
     }, [])
 
 
@@ -40,13 +40,13 @@ export const Dashboard = () => {
             <Content>
                 <Card
                     Icon={FiPercent}
-                    title='Total Inadiplência'
+                    title="Total Inadiplência"
                     value={itemTotal.percentage}
-                    type='blue'
+                    type="blue"
                 />
                 <Card
                     Icon={TbCurrencyReal}
-                    title='Total pago'
+                    title="Total pago"
                     isMoeda
                     type="green"
                     value={itemTotal.pago}
@@ -75,7 +75,7 @@ export const Dashboard = () => {
                 <Chart
                     chartType="Bar"
                     width="70vw"
-                    height='500px'
+                    height="500px"
                     data={[titles.chartTitle, ...data]}
                     options={options}
                 />
@@ -86,7 +86,7 @@ export const Dashboard = () => {
                     handleMonth={(month) => setMonthSelected(month)}
                 />
             </div>
-            <div className={`${openModal ? 'modal-open' : 'modal-close'} `}>
+            <div className={`${openModal ? "modal-open" : "modal-close"} `}>
                 <CgCloseO onClick={() => setOpenModal(false)} />
                 <h3>Lista referente ao mês {monthSelected}</h3>
                 <Modal

@@ -3,7 +3,7 @@ import { FiPlusCircle } from 'react-icons/fi';
 
 interface ITableProps {
     titles: string[],
-    data: Array<any[]>
+    data: Array<string[] | number[]>
     onClick: () => void;
     handleMonth: (month: string) => void;
 };
@@ -33,7 +33,7 @@ export const Table = ({ data, titles, onClick, handleMonth }: ITableProps) => {
                             <td
                                 onClick={() => {
                                     onClick()
-                                    handleMonth(arr[0])
+                                    handleMonth(arr[0] as string)
                                 }}
                              className="td-button"
                             >
