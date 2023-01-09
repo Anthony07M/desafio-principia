@@ -15,10 +15,12 @@ export const Container = styled.div`
     flex-direction: column;
     background: var(--bs-black-bg);
     padding: 0 100px;
+    animation: ${Animation} 1s ease;
 
     h1 {
         color: var(--bs-white);
         margin-top: 2rem;
+        font-family: 'Inter';
     }
 
     .content-drop-down {

@@ -3,7 +3,7 @@ export const options = {
         title: "Inadimplência de alunos",
         subtitle: "Inadimplência, total pago, total aberto",
     },
-    colors: ["#0d6efd", "#21ff00", "red",],
+    colors: ["#0d6efd", "#C2E15C", "#dc3545",],
     bar: { groupWidth: '75%' },
 }
 

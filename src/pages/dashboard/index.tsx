@@ -9,7 +9,9 @@ import { CgCloseO } from "react-icons/cg";
 import { FiPercent } from "react-icons/fi";
 import { Container, Content } from "./styles";
 import { useEffect, useState } from "react";
-import { AiFillAccountBook, AiFillDatabase, AiFillMoneyCollect } from "react-icons/ai";
+import { TbCurrencyReal} from 'react-icons/tb';
+import { CiWallet } from 'react-icons/ci';
+import { BsCalendar2Check } from 'react-icons/bs'
 
 export const Dashboard = () => {
     const [data, setData] = useState<any>([]); // mudar nome 
@@ -40,23 +42,27 @@ export const Dashboard = () => {
                     Icon={FiPercent}
                     title='Total Inadiplência'
                     value={itemTotal.percentage}
+                    type='blue'
                 />
                 <Card
-                    Icon={AiFillAccountBook}
+                    Icon={TbCurrencyReal}
                     title='Total pago'
                     isMoeda
+                    type="green"
                     value={itemTotal.pago}
                 />
                 <Card
-                    Icon={AiFillMoneyCollect}
-                    title='Em aberto'
+                    Icon={CiWallet}
+                    title="Em aberto"
                     value={itemTotal.open}
+                    type="red"
                     isMoeda
                 />
                 <Card
-                    Icon={AiFillDatabase}
-                    title='Mês'
+                    Icon={BsCalendar2Check}
+                    title="Mês"
                     value={itemTotal.final}
+                    type="black"
                 />
             </Content>
             <div className="content-drop-down">
@@ -67,8 +73,8 @@ export const Dashboard = () => {
             </div>
             <div className="content-chart">
                 <Chart
-                    chartType='Bar'
-                    width='70vw'
+                    chartType="Bar"
+                    width="70vw"
                     height='500px'
                     data={[titles.chartTitle, ...data]}
                     options={options}
