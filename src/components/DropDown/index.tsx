@@ -9,7 +9,7 @@ interface IDropDownProps {
 export const DropDown = ({ itemSelected, handleSelect }: IDropDownProps) => {
     const [active, setActive] = useState(false);
     return (
-        <Container onClick={() => setActive(!active)}>
+        <Container onClick={() => setActive(!active)} data-testid='dropdown'>
             <h4>{itemSelected}</h4>
             <ul className={`${active ? 'active': 'inactive'}`}>
                 <li onClick={() => handleSelect('2022-01')}>2022-01</li>
