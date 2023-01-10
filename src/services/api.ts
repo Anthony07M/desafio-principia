@@ -7,8 +7,8 @@ export const api = axios.create({
 export const services = {
     listStudents: async (month = 'todos') => {
         if (month === 'todos') {
-            const { data } = await api.get<any[]>('/list-formated');
-            const result = data?.map((item) => [item.final, item.pago, item.percentage, item.open]);
+            const { data } = await api.get<any[]>('/');
+            const result = data?.map((item) => [item.month, item.percent, item.paidOut, item.open]);
             const lastArray = data[data?.length - 1];
 
             return {
@@ -20,10 +20,10 @@ export const services = {
         } else {
             const { data } = await api.get<any>(`/list/month/${month}`);
             const result = [[
-                data.final,
-                data.inadiplencia,
-                data.pago,
-                data.total,
+                data.month,
+                data.percent,
+                data.paidOut,
+                data.open
             ]]
 
             return {

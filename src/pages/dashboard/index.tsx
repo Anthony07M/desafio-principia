@@ -23,7 +23,7 @@ export const Dashboard = () => {
     const list = async (month = 'todos') => {
         const { listStudents } = services;
         const { data, result, lastArray } = await listStudents(month)
-
+        
         setItemSelected(month)
         setItemTotal(lastArray ? lastArray : data);
         setData(result);
@@ -31,8 +31,7 @@ export const Dashboard = () => {
 
     useEffect(() => {
         list();
-    }, [])
-
+    }, [setOpenModal, openModal])
 
     return (
         <Container>
@@ -41,7 +40,7 @@ export const Dashboard = () => {
                 <Card
                     Icon={FiPercent}
                     title="Total Inadiplência"
-                    value={itemTotal.percentage}
+                    value={itemTotal.percent}
                     type="blue"
                 />
                 <Card
@@ -49,7 +48,7 @@ export const Dashboard = () => {
                     title="Total pago"
                     isMoeda
                     type="green"
-                    value={itemTotal.pago}
+                    value={itemTotal.paidOut}
                 />
                 <Card
                     Icon={CiWallet}
@@ -61,7 +60,7 @@ export const Dashboard = () => {
                 <Card
                     Icon={BsCalendar2Check}
                     title="Mês"
-                    value={itemTotal.final}
+                    value={itemTotal.month}
                     type="gray"
                 />
             </Content>
